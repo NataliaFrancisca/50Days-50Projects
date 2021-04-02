@@ -2,24 +2,21 @@ let txtArea = document.querySelector(".txt-area-tags");
 let tagArea = document.querySelector(".tags");
 
 
-txtArea.addEventListener("keydown", () => {
+txtArea.addEventListener('keyup', (e) => {
+    addTag(txtArea.value);
 
-	if(event.which === 188){
-		addTag(txtArea.value);
-	}else{
-		return false;
-	}
-	
-});
-	
+    if(e.key === 'Enter') {
+        setTimeout(() => {
+            e.target.value = ''
+        }, 100)
+        randomSelect()
+    }
+})
 	
 function addTag(tag){
 
 	const tags = tag.split(',').filter(tag => tag.trim() !== "").map(tag => tag.trim());
-	console.log(tags);
-
 	tagArea.innerHTML = "";
-
 
 	tags.forEach(tag => {
 		const theTag = document.createElement('span');
@@ -27,15 +24,44 @@ function addTag(tag){
 		theTag.innerHTML = tag;
 		tagArea.appendChild(theTag);
 	})
+}
 
+function randomSelect() {
+
+    const times = 30;
+
+    const interval = setInterval(() => {
+        const randomTag = pickRandomTag();
+
+        highlightTag(randomTag)
+
+        setTimeout(() => {
+            unHighlightTag(randomTag)
+        }, 100)
+    }, 100);
+
+    setTimeout(() => {
+        clearInterval(interval)
+
+        setTimeout(() => {
+            const randomTag = pickRandomTag()
+
+            highlightTag(randomTag)
+        }, 100)
+
+    }, times * 100)
 }
 
 
-// tag.split(",") -> separando as palavras pela virgula.
+function pickRandomTag() {
+    const tags = document.querySelectorAll('.tag');
+    return tags[Math.floor(Math.random() * tags.length)];
+}
 
-// filter -> retorna um array com os elementos que passam no teste
-// tag.trim() -> remove os espaços em branco; ex: se eu deixar com espaço em branco,
-//  não vai ser adicioando
+function highlightTag(tag) {
+    tag.classList.add('highlight')
+}
 
-// map -> vai retornar o array sem os espaços e que passou pelo teste do filter.
-
+function unHighlightTag(tag) {
+    tag.classList.remove('highlight')
+}
