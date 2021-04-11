@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=RocknRoll+One&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+  font-family: 'RocknRoll One', sans-serif;
+  font-size: 1rem;
+}
+
+body{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #D9A79C;
+}
+
+.first-screen{
+  height: 50%;
+  background: #6B78BF;
+  display: flex;
+}
+
+.second-screen{
+  height: 50%;
+  background: #CEDAF2;
+  display: flex;
+}
+
+.menu{
+  position: absolute;
+  display: flex;
+  width: 350px;
+  height: 75px;
+  border-radius: 8px;
+  background: #BF807A;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  transition: width 0.8s ease;
+}
+
+.menu ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  
+}
+
+li{
+  list-style: none;
+  margin: 5px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  transform: rotateY(360deg);
+  transition: transform 0.6s linear, opacity 0.6s linear;
+}
+
+ul a{
+  text-decoration: none;
+  color: white;
+}
+
+.open{
+  display: none;
+}
+
+.close-and-open{
+  justify-content: center;
+  display: flex;
+  width: 25px;
+  color: #59322E;
+  background: none;
+  margin-left: 15px;
+  transition: transform 0.6s linear;
+}
+
+.close-and-open i {
+  font-size: 1.5rem;
+}
+
+.menu.active {
+  width: 80px;
+  transition: width 0.8s ease;
+}
+
+.close.actived{
+  display: none;
+}
+
+.open.actived{
+  display: flex;
+}
+
+.menu.active .close-and-open{
+  position: absolute;
+  margin: 0 auto;
+  transition: transform 0.6s linear;
+}
+
+li.active{
+  transform: rotateY(0deg);
+  opacity: 0;
+  transition: transform 0.6s linear, opacity 0.6s linear;
+}
+
+.menu.active .close-and-open{
+  transform: rotate(-180deg) translateY(0px);
+}
+
+
+
+
+
