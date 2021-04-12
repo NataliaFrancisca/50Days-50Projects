@@ -14,5 +14,5 @@
 - [X] Day 11 - Event Keycodes  
 - [X] Day 12 - Faq Collapse  
 - [X] Day 13 - Random Choise Picker  
-- [ ] Day 14 - Animated Navigation  
+- [X] Day 14 - Animated Navigation  
 - [ ] Day 15 - Incrementing Counter

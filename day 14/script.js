@@ -8,7 +8,6 @@ let iconOpen = document.querySelector(".open");
 btnClose.addEventListener("click", () => {
 
 	for(let p in elementsUl){
-		console.log(elementsUl[p]);
 		elementsUl[p].classList.toggle("active");
 	}
 	
@@ -17,6 +16,5 @@ btnClose.addEventListener("click", () => {
 
 	iconClose.classList.toggle("actived");
 	iconOpen.classList.toggle("actived");
-
 
 })
